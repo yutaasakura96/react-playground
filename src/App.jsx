@@ -1,4 +1,5 @@
 import './App.css'
+import EventHandling from './components/EventHandling'
 import Student from './components/Student'
 import User from './components/User'
 
@@ -28,6 +29,7 @@ function App() {
       student = {student}
       />
       <User />
+      <EventHandling />
     </div>
   )
 }
