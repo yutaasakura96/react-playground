@@ -1,4 +1,5 @@
 import './App.css'
+import ConditionalRendering from './components/ConditionalRendering'
 import EventHandling from './components/EventHandling'
 import Student from './components/Student'
 import User from './components/User'
@@ -30,6 +31,7 @@ function App() {
       />
       <User />
       <EventHandling />
+      <ConditionalRendering />
     </div>
   )
 }
