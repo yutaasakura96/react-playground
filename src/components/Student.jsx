@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-const Student = (props) => {
+const Student = ({ student }) => {
   return (
     <div>
       <h1>Student Details</h1>
-      <p>First Name: {props.student.firstName}</p>
-      <p>Last Name: {props.student.lastName}</p>
-      <p>Email: {props.student.email}</p>
-      <p>Skills: {props.data.join(', ')}</p>
+      <p>First Name: {student.firstName}</p>
+      <p>Last Name: {student.lastName}</p>
+      <p>Email: {student.email}</p>
+      <p>Skills: {student.skills.join(', ')}</p>
     </div>
   )
 }
