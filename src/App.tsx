@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsLoading(true);
-    const { request, cancel } = userService.getAllUsers();
+    const { request, cancel } = userService.getAll<User>();
     request
       .then((response) => {
         setUsers(response.data);
@@ -28,7 +28,7 @@ function App() {
     const originalUsers = [...users];
     setUsers(users.filter((u) => u.id !== user.id));
 
-    userService.deleteUser(user.id).catch((error) => {
+    userService.delete(user.id).catch((error) => {
       setError(error.message);
       setUsers(originalUsers);
     });
@@ -39,7 +39,7 @@ function App() {
     const newUser = { id: 0, name: 'John' };
     setUsers([newUser, ...users]);
     userService
-      .createUser(newUser)
+      .create(newUser)
       .then(({ data: savedUser }) => setUsers([savedUser, ...users]))
       .catch((error) => {
         setError(error.message);
@@ -51,7 +51,7 @@ function App() {
     const originalUsers = [...users];
     const updatedUser = { ...user, name: user.name + '!' };
     setUsers(users.map((u) => (u.id === user.id ? updatedUser : u)));
-    userService.updateUser(updatedUser).catch((error) => {
+    userService.update(updatedUser).catch((error) => {
       setError(error.message);
       setUsers(originalUsers);
     });
