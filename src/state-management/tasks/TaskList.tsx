@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../routing/hooks/useAuth';
 import TaskContext from '../tasks/tasksContext';
 
 const useTasks = () => {
@@ -12,7 +12,7 @@ const TaskList = () => {
 
   return (
     <>
-      <p>User: {user}</p>
+      <p>User: {user.name}</p>
       <button
         onClick={() =>
           dispatch({ type: 'ADD', task: { id: Date.now(), title: 'Task ' + Date.now() } })
