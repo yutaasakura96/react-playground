@@ -18,7 +18,7 @@ const useAddTodo = (onAdd: () => void) => {
     onSuccess: (savedTodo, newTodo) => {
       queryClient.setQueryData<Todo[]>(CACHE_KEY_TODOS, todos => todos?.map(todo => todo === newTodo ? savedTodo : todo));
     },
-    onError: (error, newTodo, context) => {
+    onError: (_error, _newTodo, context) => {
       if (!context) return;
       queryClient.setQueryData<Todo[]>(CACHE_KEY_TODOS, context?.previousTodos);
     }
